@@ -311,7 +311,7 @@ IF(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
 	ENDIF(NOT CYGWIN)
 
 	SET(CMAKE_CXX_FLAGS_DEBUG "-O0 -g")
-	SET(CMAKE_CXX_FLAGS_RELEASE "-DNDEBUG -O3 -ftree-vectorize -funroll-loops -fvariable-expansion-in-unroller")
+	SET(CMAKE_CXX_FLAGS_RELEASE "-DNDEBUG -O3 -msse2 -mfpmath=sse -funsafe-math-optimizations -march=native -ftree-vectorize -funroll-loops -fvariable-expansion-in-unroller")
 ENDIF()
 
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
