@@ -27,15 +27,15 @@
 # Lookup user provide path first
 SET(OPENCL_INC_SUFFIXES "" include/opencl cuda/include include Include Headers Dist Source)
 FIND_PATH(OPENCL_INCLUDE_DIR
-	NAMES CL/cl.hpp OpenCL/cl.hpp
+	NAMES CL/cl2.hpp OpenCL/cl2.hpp
 	PATHS ${OPENCL_ROOT}
 	PATH_SUFFIXES ${OPENCL_INC_SUFFIXES}
-	DOC "The directory where CL/cl.hpp resides")
+	DOC "The directory where CL/cl2.hpp resides")
 FIND_PATH(OPENCL_INCLUDE_DIR
-	NAMES CL/cl.hpp OpenCL/cl.hpp
+	NAMES CL/cl2.hpp OpenCL/cl2.hpp
 	PATHS /usr /usr/local /sw /opt/local $ENV{ATISTREAMSDKROOT} $ENV{AMDAPPSDKROOT} $ENV{CUDA_PATH} $ENV{INTELOCLSDKROOT}
 	PATH_SUFFIXES ${OPENCL_INC_SUFFIXES}
-	DOC "The directory where CL/cl.hpp resides")
+	DOC "The directory where CL/cl2.hpp resides")
 FIND_PATH(OPENCL_C_INCLUDE_DIR
 	NAMES CL/opencl.h OpenCL/opencl.h
 	PATHS $ENV{ATISTREAMSDKROOT} $ENV{AMDAPPSDKROOT} $ENV{CUDA_PATH} $ENV{INTELOCLSDKROOT}

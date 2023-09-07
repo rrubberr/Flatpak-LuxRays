@@ -25,14 +25,14 @@
 
 #if !defined(LUXRAYS_DISABLE_OPENCL)
 
-// To avoid reference to OpenCL 1.2 symbols in cl.hpp file
+// To avoid reference to OpenCL 1.2 symbols in cl2.hpp file
 #define CL_USE_DEPRECATED_OPENCL_1_1_APIS
 #define __CL_ENABLE_EXCEPTIONS
 
 #if defined(__APPLE__)
-#include <OpenCL/cl.hpp>
+#include <OpenCL/cl2.hpp>
 #else
-#include <CL/cl.hpp>
+#include <CL/cl2.hpp>
 #endif
 #include "luxrays/core/utils.h"
 
