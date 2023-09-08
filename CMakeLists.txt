@@ -133,26 +133,26 @@ add_subdirectory(src/luxcore)
 # Samples
 #
 ################################################################################
-
-if(NOT APPLE OR OSX_BUILD_DEMOS)
-	add_subdirectory(samples/benchsimple)
-	add_subdirectory(samples/luxcoredemo)
-	add_subdirectory(samples/luxcorescenedemo)
-	add_subdirectory(samples/luxcoreimplserializationdemo)
-endif()
-
-if(OPENGL_FOUND AND GLUT_FOUND AND GLEW_FOUND)
-	add_subdirectory(samples/smallluxgpu4)
-endif(OPENGL_FOUND AND GLUT_FOUND AND GLEW_FOUND)
-
-add_subdirectory(samples/luxcoreconsole)
-
-if(OPENGL_FOUND)
-	add_subdirectory(ui/luxrender2)
-	add_subdirectory(samples/luxcoreui)
-endif(OPENGL_FOUND)
-
-
+#
+#if(NOT APPLE OR OSX_BUILD_DEMOS)
+#	add_subdirectory(samples/benchsimple)
+#	add_subdirectory(samples/luxcoredemo)
+#	add_subdirectory(samples/luxcorescenedemo)
+#	add_subdirectory(samples/luxcoreimplserializationdemo)
+#endif()
+#
+#if(OPENGL_FOUND AND GLUT_FOUND AND GLEW_FOUND)
+#	add_subdirectory(samples/smallluxgpu4)
+#endif(OPENGL_FOUND AND GLUT_FOUND AND GLEW_FOUND)
+#
+#add_subdirectory(samples/luxcoreconsole)
+#
+#if(OPENGL_FOUND)
+#	add_subdirectory(ui/luxrender2)
+#	add_subdirectory(samples/luxcoreui)
+#endif(OPENGL_FOUND)
+#
+#
 ################################################################################
 #
 # For non win32 we'll have to copy everything to a single dir
