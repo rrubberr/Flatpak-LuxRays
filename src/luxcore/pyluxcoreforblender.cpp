@@ -116,7 +116,7 @@ void ConvertFilmChannelOutput_3xFloat_To_4xUChar(const u_int width, const u_int 
 		float maxValue = 0.f;
 		for (u_int i = 0; i < width * height * 3; ++i) {
 			const float value = src[i];
-			if (!isinf(value) && !isnan(value) && (value > maxValue))
+			if (!std::isinf(value) && !std::isnan(value) && (value > maxValue))
 				maxValue = value;
 		}
 		const float k = (maxValue == 0.f) ? 0.f : (255.f / maxValue);
@@ -205,7 +205,7 @@ boost::python::list ConvertFilmChannelOutput_1xFloat_To_4xFloatList(const u_int 
 		float maxValue = 0.f;
 		for (u_int i = 0; i < width * height; ++i) {
 			const float value = src[i];
-			if (!isinf(value) && !isnan(value) && (value > maxValue))
+			if (!std::isinf(value) && !std::isnan(value) && (value > maxValue))
 				maxValue = value;
 		}
 		const float k = (maxValue == 0.f) ? 0.f : (1.f / maxValue);
@@ -262,7 +262,7 @@ boost::python::list ConvertFilmChannelOutput_2xFloat_To_4xFloatList(const u_int 
 		float maxValue = 0.f;
 		for (u_int i = 0; i < width * height * 2; ++i) {
 			const float value = src[i];
-			if (!isinf(value) && !isnan(value) && (value > maxValue))
+			if (!std::isinf(value) && !std::isnan(value) && (value > maxValue))
 				maxValue = value;
 		}
 		const float k = (maxValue == 0.f) ? 0.f : (1.f / maxValue);
@@ -317,7 +317,7 @@ boost::python::list ConvertFilmChannelOutput_3xFloat_To_4xFloatList(const u_int 
 		float maxValue = 0.f;
 		for (u_int i = 0; i < width * height * 3; ++i) {
 			const float value = src[i];
-			if (!isinf(value) && !isnan(value) && (value > maxValue))
+			if (!std::isinf(value) && !std::isnan(value) && (value > maxValue))
 				maxValue = value;
 		}
 		const float k = (maxValue == 0.f) ? 0.f : (1.f / maxValue);
@@ -373,7 +373,7 @@ boost::python::list ConvertFilmChannelOutput_4xFloat_To_4xFloatList(const u_int 
 		for (u_int i = 0; i < width * height * 4; ++i) {
 			const float value = src[i];
 			// Leave out every multiple of 4 (alpha values)
-			if ((i % 4 != 0) && !isinf(value) && !isnan(value) && (value > maxValue))
+			if ((i % 4 != 0) && !std::isinf(value) && !std::isnan(value) && (value > maxValue))
 				maxValue = value;
 		}
 		const float k = (maxValue == 0.f) ? 0.f : (1.f / maxValue);

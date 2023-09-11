@@ -404,7 +404,7 @@ ImageMap::ImageMap(const string &fileName, const float g,
 	else {
 		ImageSpec config;
 		config.attribute ("oiio:UnassociatedAlpha", 1);
-		auto_ptr<ImageInput> in(ImageInput::open(fileName, &config));
+		unique_ptr<ImageInput> in(ImageInput::open(fileName, &config));
 		if (in.get()) {
 			const ImageSpec &spec = in->spec();
 
@@ -493,7 +493,7 @@ float ImageMap::CalcSpectrumMean() const {
 	}
 
 	const float result = mean / (pixelStorage->width * pixelStorage->height);
-	assert (!isnan(result) && !isinf(result));
+	assert (!std::isnan(result) && !std::isinf(result));
 
 	return result;
 }
@@ -515,7 +515,7 @@ float ImageMap::CalcSpectrumMeanY() const {
 	}
 
 	const float result = mean / (pixelStorage->width * pixelStorage->height);
-	assert (!isnan(result) && !isinf(result));
+	assert (!std::isnan(result) && !std::isinf(result));
 
 	return result;
 }
@@ -596,7 +596,18 @@ void ImageMap::Resize(const u_int newWidth, const u_int newHeight) {
 			throw runtime_error("Unsupported storage type in ImageMap::Resize(): " + ToString(storageType));
 	}
 	
-	dest.get_pixels(0, newWidth, 0, newHeight, 0, 1, baseType, pixelStorage->GetPixelsData());
+	ROI temp_roi;
+	temp_roi.xbegin = 0;
+	temp_roi.xend = newWidth;
+	temp_roi.ybegin = 0;
+	temp_roi.yend = newHeight;
+	temp_roi.zbegin = 0;
+	temp_roi.zend = 1;
+	temp_roi.chbegin = 0;
+	temp_roi.chend = channelCount;
+
+	//dest.get_pixels(0, newWidth, 0, newHeight, 0, 1, baseType, pixelStorage->GetPixelsData());
+	dest.get_pixels(temp_roi,baseType,pixelStorage->GetPixelsData());
 
 	Preprocess();
 }
@@ -621,7 +632,7 @@ string ImageMap::GetFileExtension() const {
 }
 
 void ImageMap::WriteImage(const string &fileName) const {
-	ImageOutput *out = ImageOutput::create(fileName);
+	std::unique_ptr<ImageOutput> out = ImageOutput::create(fileName);
 	if (out) {
 		ImageMapStorage::StorageType storageType = pixelStorage->GetStorageType();
 
@@ -651,7 +662,7 @@ void ImageMap::WriteImage(const string &fileName) const {
 				throw runtime_error("Unsupported storage type in ImageMap::WriteImage(): " + ToString(storageType));
 		}
 
-		delete out;
+		//delete out;
 	} else
 		throw runtime_error("Failed image save: " + fileName);
 }

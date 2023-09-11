@@ -104,7 +104,7 @@ void RenderEngineWindow::DrawVarianceClampingSuggestedValue(const string &prefix
 			const Spectrum *p = (const Spectrum *)&pixels[i];
 
 			const float y = p->Y();
-			if ((y <= 0.f) || isinf(y))
+			if ((y <= 0.f) || std::isinf(y))
 				continue;
 
 			Y += y;
