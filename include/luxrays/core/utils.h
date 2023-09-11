@@ -27,19 +27,19 @@
 
 #include <boost/thread.hpp>
 
-#if (defined(WIN32) && defined(_MSC_VER) && _MSC_VER < 1800)
+/*#if (defined(WIN32) && defined(_MSC_VER) && _MSC_VER < 1800)
 #include <float.h>
 #define isnan(a) _isnan(a)
-#define isinf(f) (!_finite((f)))
+#define std::isinf(f) (!_finite((f)))
 #else
 #define isnan(a) std::isnan(a)
-#define isinf(f) std::isinf(f)
-#endif
+#define std::isinf(f) std::isinf(f)
+#endif*/
 
-#if defined(WIN32)
+/*#if defined(WIN32)
 #define isnanf(a) _isnan(a)
 typedef unsigned int u_int;
-#endif
+#endif*/
 
 #if defined(__APPLE__)
 #include <string>

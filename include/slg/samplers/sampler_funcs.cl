@@ -201,7 +201,7 @@ void Sampler_SplatSample(
 		const float currentI = SampleResult_Radiance_Y(&sample->currentResult);
 
 		float proposedI = SampleResult_Radiance_Y(&sample->result);
-		proposedI = (isnan(proposedI) || isinf(proposedI)) ? 0.f : proposedI;
+		proposedI = (std::isnan(proposedI) || std::isinf(proposedI)) ? 0.f : proposedI;
 
 		float totalI = sample->totalI;
 		uint largeMutationCount = sample->largeMutationCount;

@@ -204,7 +204,7 @@ std::string KernelSource_sampler_funcs =
 "		const float currentI = SampleResult_Radiance_Y(&sample->currentResult);\n"
 "\n"
 "		float proposedI = SampleResult_Radiance_Y(&sample->result);\n"
-"		proposedI = (isnan(proposedI) || isinf(proposedI)) ? 0.f : proposedI;\n"
+"		proposedI = (std::isnan(proposedI) || std::isinf(proposedI)) ? 0.f : proposedI;\n"
 "\n"
 "		float totalI = sample->totalI;\n"
 "		uint largeMutationCount = sample->largeMutationCount;\n"

@@ -432,7 +432,7 @@ Normal *ExtTriangleMesh::ComputeNormals() {
 	for (u_int i = 0; i < vertCount; ++i) {
 		normals[i] = Normalize(normals[i]);
 		// Check for degenerate triangles/normals, they can freeze the GPU
-		if (isnan(normals[i].x) || isnan(normals[i].y) || isnan(normals[i].z)) {
+		if (std::isnan(normals[i].x) || std::isnan(normals[i].y) || std::isnan(normals[i].z)) {
 			/*if (printedWarning < 15) {
 				SDL_LOG("The model contains a degenerate normal (index " << i << ")");
 				++printedWarning;

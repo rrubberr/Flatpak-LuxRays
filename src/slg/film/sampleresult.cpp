@@ -106,7 +106,7 @@ void SampleResult::AddSampleResult(std::vector<SampleResult> &sampleResults,
 	const Spectrum &radiancePPN,
 	const float alpha) {
 	assert(!radiancePPN.IsInf() || !radiancePPN.IsNaN());
-	assert(!isinf(alpha) || !isnan(alpha));
+	assert(!std::isinf(alpha) || !std::isnan(alpha));
 
 	const u_int size = sampleResults.size();
 	sampleResults.resize(size + 1);

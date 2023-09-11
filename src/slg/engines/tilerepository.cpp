@@ -170,7 +170,7 @@ void TileRepository::Tile::UpdateTileStats() {
 
 					const float w = 1.f / pixel[3];
 					const float Y = Spectrum(pixel[0] * w, pixel[1] * w, pixel[2] * w).Y();
-					if ((Y <= 0.f) || isinf(Y))
+					if ((Y <= 0.f) || std::isinf(Y))
 						continue;
 
 					totalYValue += Y;
