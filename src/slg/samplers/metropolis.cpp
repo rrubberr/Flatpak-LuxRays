@@ -149,9 +149,9 @@ void MetropolisSampler::NextSample(const vector<SampleResult> &sampleResults) {
 		if (sr->HasChannel(Film::RADIANCE_PER_PIXEL_NORMALIZED)) {
 			for (u_int i = 0; i < sr->radiance.size(); ++i) {
 				const float luminance = sr->radiance[i].Y();
-				assert (!std::isnan(luminance) && !std::isinf(luminance));
+				assert (!isnan(luminance) && !isinf(luminance));
 
-				if ((luminance > 0.f) && !std::isnan(luminance) && !std::isinf(luminance))
+				if ((luminance > 0.f) && !isnan(luminance) && !isinf(luminance))
 					newLuminance += luminance;
 			}
 		}
@@ -159,9 +159,9 @@ void MetropolisSampler::NextSample(const vector<SampleResult> &sampleResults) {
 		if (sr->HasChannel(Film::RADIANCE_PER_SCREEN_NORMALIZED)) {
 			for (u_int i = 0; i < sr->radiance.size(); ++i) {
 				const float luminance = sr->radiance[i].Y();
-				assert (!std::isnan(luminance) && !std::isinf(luminance));
+				assert (!isnan(luminance) && !isinf(luminance));
 
-				if ((luminance > 0.f) && !std::isnan(luminance) && !std::isinf(luminance))
+				if ((luminance > 0.f) && !isnan(luminance) && !isinf(luminance))
 					newLuminance += luminance;
 			}
 		}

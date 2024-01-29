@@ -167,7 +167,7 @@ void ImageWindow::AutoLinearToneMap(const float *src, float *dst,
 
 			// Spectrum::Y()
 			const float y = 0.212671f * d[0] + 0.715160f * d[1] + 0.072169f * d[2];
-			if ((y <= 0.f) || std::isinf(y))
+			if ((y <= 0.f) || isinf(y))
 				continue;
 
 			Y += y;

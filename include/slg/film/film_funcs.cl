@@ -121,10 +121,10 @@ void Film_AddWeightedPixel4Val(__global float *dst, float3 val, const float weig
 	const float g = val.s1;
 	const float b = val.s2;
 
-	if (!std::isnan(r) && !std::isinf(r) &&
-			!std::isnan(g) && !std::isinf(g) &&
-			!std::isnan(b) && !std::isinf(b) &&
-			!std::isnan(weight) && !std::isinf(weight)) {
+	if (!isnan(r) && !isinf(r) &&
+			!isnan(g) && !isinf(g) &&
+			!isnan(b) && !isinf(b) &&
+			!isnan(weight) && !isinf(weight)) {
 #if defined(PARAM_USE_PIXEL_ATOMICS)
 		AtomicAdd(&dst[0], r * weight);
 		AtomicAdd(&dst[1], g * weight);
@@ -146,10 +146,10 @@ void Film_AddWeightedPixel4(__global float *dst, __global float *val, const floa
 	const float g = val[1];
 	const float b = val[2];
 
-	if (!std::isnan(r) && !std::isinf(r) &&
-			!std::isnan(g) && !std::isinf(g) &&
-			!std::isnan(b) && !std::isinf(b) &&
-			!std::isnan(weight) && !std::isinf(weight)) {
+	if (!isnan(r) && !isinf(r) &&
+			!isnan(g) && !isinf(g) &&
+			!isnan(b) && !isinf(b) &&
+			!isnan(weight) && !isinf(weight)) {
 #if defined(PARAM_USE_PIXEL_ATOMICS)
 		AtomicAdd(&dst[0], r * weight);
 		AtomicAdd(&dst[1], g * weight);

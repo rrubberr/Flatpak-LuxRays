@@ -77,7 +77,7 @@ void AutoLinearToneMap::Apply(Film &film, const u_int index) {
 	for (u_int i = 0; i < pixelCount; ++i) {
 		if (*(film.channel_FRAMEBUFFER_MASK->GetPixel(i))) {
 			const float y = pixels[i].Y();
-			if ((y <= 0.f) || std::isinf(y))
+			if ((y <= 0.f) || isinf(y))
 				continue;
 
 			Y += y;

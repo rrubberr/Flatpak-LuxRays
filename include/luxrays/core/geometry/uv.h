@@ -92,11 +92,11 @@ public:
 	}
 
 	bool IsNaN() const {
-		return std::isnan(u) || std::isnan(v);
+		return isnan(u) || isnan(v);
 	}
 
 	bool IsInf() const {
-		return std::isinf(u) || std::isinf(v);
+		return isinf(u) || isinf(v);
 	}
 
 	// UV Public Data
